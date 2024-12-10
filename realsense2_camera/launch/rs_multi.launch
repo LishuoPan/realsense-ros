@@ -1,8 +1,6 @@
 <launch>
   <arg name="ROBOT_ID"              default="0"/>
-
-  <group ns="uav"+"$(arg camera)/rs">
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="camera" default="uav$(arg ROBOT_ID)/camera" />
     </include>
-  </group>
 </launch>
