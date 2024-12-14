@@ -1,5 +1,7 @@
 <launch>
   <arg name="ROBOT_ID"              default="0"/>
+  <node pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0.0 0.0 0.0 1.0 /uav$(arg ROBOT_ID)/base_link /uav$(arg ROBOT_ID)/camera_link 100" />
+  
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" default="uav$(arg ROBOT_ID)/camera" />
     </include>
